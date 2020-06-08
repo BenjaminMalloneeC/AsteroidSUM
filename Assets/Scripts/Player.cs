@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -40,5 +41,22 @@ public class Player : MonoBehaviour
     {
         //ToDo: Implement Shooting
         Debug.Log("Shootng not implemented yet.");
+    }
+
+   void OnCollisionEnter2D(Collision2D otherObject)
+    {
+        //If the player runs into something, they should die
+        Die();
+    }
+
+    void Die()
+    {
+        //TODO: Write death code here
+        Destroy(this.gameObject);
+    }
+
+    void OnDestroy()
+    {
+        GameManager.instance.player = null;
     }
 }
