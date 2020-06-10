@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     private Transform tf;
     public float turnSpeed = 175f;
     public float moveSpeed = 5f;
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 6f;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,8 +41,9 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        //ToDo: Implement Shooting
-        Debug.Log("Shootng not implemented yet.");
+        GameObject bullet = Instantiate(bulletPrefab, transform.position,transform.rotation);
+        bullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
+        Destroy(bullet, 2);
     }
 
    void OnCollisionEnter2D(Collision2D otherObject)

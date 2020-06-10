@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4115882223628746803}
   - component: {fileID: 4115882223628746804}
   - component: {fileID: 4115882223628746807}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -97,6 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 175
   moveSpeed: 5
+  bulletPrefab: {fileID: 2890891987133738893, guid: 32b48c6ea871f2347a5a71912e18a5c0,
+    type: 3}
+  bulletSpeed: 25
 --- !u!60 &4115882223628746804
 PolygonCollider2D:
   m_ObjectHideFlags: 0
