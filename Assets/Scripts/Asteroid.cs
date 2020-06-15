@@ -4,9 +4,29 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    private Vector3 directionToMove;
+    private Vector3 targetPosition;
+    public float moveSpeed;
     private void Start()
     {
         GameManager.instance.enemyList.Add(this.gameObject);
+
+        directionToMove = GameManager.instance.player.transform.position - transform.position;
+        directionToMove.Normalize();
+
+        targetPosition = GameManager.instance.player.transform.position;
+    }
+
+    private void Update()
+    {
+        //Used to go to starting position
+        transform.position += directionToMove * moveSpeed * Time.deltaTime;
+
+        //Used for heat seeking
+        //transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+        //Move a percent every update
+        //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.01f);
     }
 
     private void OnDestroy()
