@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             //tf.Translate(Vector3.right * moveSpeed * Time.deltaTime, Space.Self);
-            tf.position += tf.right * moveSpeed * Time.deltaTime;
+            tf.position += tf.up * moveSpeed * Time.deltaTime;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
